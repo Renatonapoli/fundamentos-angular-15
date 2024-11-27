@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./diretivas-de-atributo.component.css']
 })
 export class DiretivasDeAtributoComponent {
-
+color: string = ''
 }

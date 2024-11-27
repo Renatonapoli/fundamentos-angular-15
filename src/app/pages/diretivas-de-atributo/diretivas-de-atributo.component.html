@@ -4,6 +4,18 @@
   </header>
 
   <main>
-    <p appHighlight>Setando uma cor usando a diretiva highlight</p>
+  <h2>Aplicando uma diretiva de atributo</h2>
+  <p appHighlight>Setando uma cor usando a diretiva highlight</p>
+
+  <h2>Manipulando eventos do usuário</h2>
+  <p appHighlight>Passe o mouse aqui</p>
+
+  <h2>Defina o valor com a entrada do usuário</h2>
+  <div class="input-radio">
+    <input type="radio" name="colors" (click)="color= 'green'">Green
+    <input type="radio" name="colors" (click)="color= 'yellow'">yellow
+    <input type="radio" name="colors" (click)="color= 'cyan'">cyan
+  </div>
+  <p [appHighlight]="color">Highlight me!</p>
   </main>
 </section>

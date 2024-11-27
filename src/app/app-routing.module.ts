@@ -5,11 +5,6 @@ import { DiretivasDeAtributoComponent } from './pages/diretivas-de-atributo/dire
 
 const routes: Routes = [
   {
-    path: '**',
-    redirectTo: 'lista-cards',
-    pathMatch: 'full'
-  },
-  {
     path: 'lista-cards',
     component: ListaCardsComponent,
     title: 'Lista de cards'
@@ -18,7 +13,12 @@ const routes: Routes = [
     path: 'diretivas-atributo',
     component: DiretivasDeAtributoComponent,
     title: 'Diretivas de atributos'
-  }
+  },
+  {
+    path: '**',
+    redirectTo: 'lista-cards',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
