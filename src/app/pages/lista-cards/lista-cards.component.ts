@@ -13,4 +13,9 @@ export class ListaCardsComponent {
     conteudo: 'Altere a aparência ou o comportamento de elementos DOM e componentes Angular com diretivas de atributo.',
     link: '/diretivas-atributo'
   }
+  consumindoAPI = {
+    titulo: 'Consumindo API',
+    conteudo: 'Como consumir os dados de uma api e utiliza-la na aplicação',
+    link: '/cliente-httpClient'
+  }
 }

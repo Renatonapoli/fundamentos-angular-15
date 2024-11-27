@@ -7,6 +7,8 @@ import { ListaCardsComponent } from './pages/lista-cards/lista-cards.component';
 import { CardComponent } from './components/card/card.component';
 import { DiretivasDeAtributoComponent } from './pages/diretivas-de-atributo/diretivas-de-atributo.component';
 import { HighlightDirective } from './pages/diretivas-de-atributo/highlight.directive';
+import { ConsumindoApiComponent } from './pages/consumindo-api/consumindo-api.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { HighlightDirective } from './pages/diretivas-de-atributo/highlight.dire
     CardComponent,
     DiretivasDeAtributoComponent,
     HighlightDirective,
+    ConsumindoApiComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
