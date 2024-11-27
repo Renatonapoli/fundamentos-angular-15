@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ConteudoCard } from './conteudo-card';
 
 @Component({
   selector: 'app-card',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-
+  // titulo: string = 'Texto aqui'
+  @Input() conteudoCard: ConteudoCard = {
+    titulo: '',
+    conteudo: '',
+    link: ''
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConteudoCard } from 'src/app/components/card/conteudo-card';
 
 @Component({
   selector: 'app-lista-cards',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ListaCardsComponent {
 
+  diretivasDeAtributo = {
+    titulo: 'Diretivas de atributo',
+    conteudo: 'Altere a aparência ou o comportamento de elementos DOM e componentes Angular com diretivas de atributo.',
+    link: '/diretivas-atributo'
+  }
 }

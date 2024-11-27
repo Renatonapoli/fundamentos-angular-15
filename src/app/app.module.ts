@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaCardsComponent } from './pages/lista-cards/lista-cards.component';
 import { CardComponent } from './components/card/card.component';
+import { DiretivasDeAtributoComponent } from './pages/diretivas-de-atributo/diretivas-de-atributo.component';
+import { HighlightDirective } from './pages/diretivas-de-atributo/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaCardsComponent,
-    CardComponent
+    CardComponent,
+    DiretivasDeAtributoComponent,
+    HighlightDirective,
+
   ],
   imports: [
     BrowserModule,
