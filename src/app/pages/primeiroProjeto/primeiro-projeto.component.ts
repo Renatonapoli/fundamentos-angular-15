@@ -8,4 +8,4 @@ import { Component } from "@angular/core";
   styleUrls: ['./primeiro-projeto.component.css']
 })
 
-export class PrimeiroProjeto {}
+export class PrimeiroProjetoComponent {}
