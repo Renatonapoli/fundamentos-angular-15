@@ -1,6 +1,6 @@
 <section class="data-binding">
 
-  <article>
+  <!-- <article>
     <h3>Interpolação / Interpolation</h3>
     <p>String renderizada com interpolcação: {{ url }}</p>
     <p>Resultado de 1 + 1: {{ 1+1 }}</p>
@@ -12,5 +12,42 @@
     <h3>Property-binding</h3>
     <img src="{{ urlImagem }}">
     <img [src]="urlImagem2" >
+  </article> -->
+
+  <article>
+    <h3>Class e style-binding</h3>
+    <div>
+      Selecione sua classe:
+      <select #classe (change)="0">
+        <option value="alert-success" role="alert">Sucesso</option>
+        <option value="alert-info" role="alert">Info</option>
+        <option value="alert-warning" role="alert">Alerta</option>
+        <option value="alert-danger" role="alert">Erro</option>
+      </select>
+      <br><br>
+
+      <div class="alert {{ classe.value }}">
+        Texto colorido conforme valor do combobox.
+      </div>
+
+
+      <div class="alert" [class.alert-success]="classe.value == 'alert-success'" role="alert">
+        Sucesso
+      </div>
+      <div class="alert" [class.alert-danger]="classe.value == 'alert-danger'" role="alert">
+        Erro
+      </div>
+      <div class="alert" [class.alert-warning]="classe.value == 'alert-warning'" role="alert">
+        Alerta
+      </div>
+      <div class="alert" [class.alert-info]="classe.value == 'alert-info'" role="alert">
+        Info
+      </div>
+
+      <div class="alert alert-danger" [style.display]="classe.value === 'alert-danger' ? 'block' : 'none'">
+        Esse texto aparece somente em caso de erro.
+      </div>
+
+    </div>
   </article>
 </section>
