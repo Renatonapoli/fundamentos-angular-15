@@ -1,1 +1,8 @@
-<app-data-binding></app-data-binding>
+<!-- TODO Ciclo de vida do componente -->
+<app-ciclo [valorInicial]="valor" *ngIf="!deletarCiclo"></app-ciclo>
+<button (click)="mudarValor()">Mudar Valor</button>
+<button (click)="deletar()">Deletar Valor</button>
+
+<!-- ---------------------- -->
+
+<!-- <app-data-binding></app-data-binding> -->
