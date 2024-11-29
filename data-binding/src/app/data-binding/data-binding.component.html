@@ -1,6 +1,7 @@
-<section class="data-binding">
+  TODO DATA-BINDING
+  <!-- <section class="data-binding">
 
-  <!-- <article>
+ <article>
     <h3>Interpolação / Interpolation</h3>
     <p>String renderizada com interpolcação: {{ url }}</p>
     <p>Resultado de 1 + 1: {{ 1+1 }}</p>
@@ -12,8 +13,13 @@
     <h3>Property-binding</h3>
     <img src="{{ urlImagem }}">
     <img [src]="urlImagem2" >
-  </article> -->
+  </article>
 
+</section> -->
+
+TODO CLASS E STYLE-BINDING
+
+<!-- <section>
   <article>
     <h3>Class e style-binding</h3>
     <div>
@@ -50,4 +56,34 @@
 
     </div>
   </article>
+</section> -->
+
+TODO EVENT BINDING
+
+<section>
+  <article>
+    <h3>Event binging</h3>
+  </article>
+  <button class="btn btn-primary" (click)="botaoClicado()">
+    Clique me!
+  </button>
+  <br><br>
+
+  <input type="text"
+    (keyup)="OnKeyUp($event)"
+    (keyup.enter)="salvarValor($any($event.target).value)"
+    (blur)="salvarValor(campoValor.value)"
+    #campoValor
+    >
+
+  <p>Valor digitado no input: {{ valorAtual }}</p>
+  <p>Valor pressionado a tecla enter:  {{ valorEnter }}</p>
+  <br>
+
+  <span
+    (mouseover)="onMouseOver()"
+    (mouseout)="onMouseOver()"
+    [class.highlight]= "mouseOver"
+    >Passe o mouse sobre mim!
+  </span>
 </section>
