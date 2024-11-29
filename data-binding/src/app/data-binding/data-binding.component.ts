@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
@@ -17,6 +17,7 @@ export class DataBindingComponent {
   mouseOver: boolean = false
 
   nome: string = 'abc'
+  nomeDoCurso = 'Angular'
 
   getValor() {
     return 1
