@@ -114,10 +114,22 @@
 
 <!-- TODO Input properties -->
 
-<section>
+<!-- <section>
   <div>
     <h3>Output/Input properties</h3>
 
     <app-input-properties [nome]="nomeDoCurso" ></app-input-properties>
   </div>
+</section> -->
+
+
+<!-- TODO Output Property -->
+
+<section>
+  <h3>Output Property</h3>
+
+  <app-output-property
+    [valor]="novoValor"
+    (mudouValor)="onMudouValor($event)"
+  ></app-output-property>
 </section>
