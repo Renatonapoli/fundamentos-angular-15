@@ -1,4 +1,4 @@
-  TODO DATA-BINDING
+<!-- TODO DATA-BINDING -->
   <!-- <section class="data-binding">
 
  <article>
@@ -17,7 +17,7 @@
 
 </section> -->
 
-TODO CLASS E STYLE-BINDING
+<!-- TODO CLASS E STYLE-BINDING -->
 
 <!-- <section>
   <article>
@@ -58,9 +58,9 @@ TODO CLASS E STYLE-BINDING
   </article>
 </section> -->
 
-TODO EVENT BINDING
+<!-- TODO EVENT BINDING -->
 
-<section>
+<!-- <section>
   <article>
     <h3>Event binging</h3>
   </article>
@@ -86,4 +86,28 @@ TODO EVENT BINDING
     [class.highlight]= "mouseOver"
     >Passe o mouse sobre mim!
   </span>
+</section> -->
+
+<!-- TODO TWO-WAY-BINDING -->
+
+<section>
+  <div>
+
+  <h3>Two way data-binding</h3>
+
+  <input type="text"
+    [ngModel]="nome"
+    (ngModelChange)="nome = $event"
+    />
+
+    <input type="text" [(ngModel)]="nome" >
+
+    <input type="text" bindon-ngModel="nome" >
+
+  <p>Valor digitado no primeiro input: {{ nome }}</p>
+</div>
+
+
+<app-meu-form></app-meu-form>
+
 </section>
