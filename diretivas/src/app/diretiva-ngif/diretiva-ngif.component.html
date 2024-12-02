@@ -1,0 +1,21 @@
+<h1>ngIf</h1>
+
+<div>
+  <div *ngIf="listaDeCursos.length > 0">Lista de cursos</div>
+  <div *ngIf="listaDeCursos.length == 0">Não há cursos na lista de cursos</div>
+
+  <div *ngIf="listaDeCursos.length > 0; else mudarMensagem">Lista de cursos</div>
+
+  <div *ngIf="mostrarCursos">Lista de cursos</div>
+  <div *ngIf="!mostrarCursos">Não há cursos na lista de cursos</div>
+
+
+  <div [hidden]="!mostrarCursos">Lista de cursos</div>
+  <div [hidden]="mostrarCursos">Não há cursos na lista de cursos</div>
+
+</div>
+<ng-template #mudarMensagem>Não há cursos na lista de cursos</ng-template>
+<br><br>
+
+<button (click)="validaLista()">Valida lista</button>
+
