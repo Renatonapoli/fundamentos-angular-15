@@ -19,3 +19,17 @@
 
 <button (click)="validaLista()">Valida lista</button>
 
+<br><br>
+
+<h5>Removendo o * e usando o template</h5>
+
+  <ng-template [ngIf]="mostrarCursos">
+    <div>Lista de cursos</div>
+  </ng-template>
+  <ng-template [ngIf]="!mostrarCursos">
+    <div>Não há cursos na Lista de cursos</div>
+  </ng-template>
+
+  <div template="ngIf !mostrarCursos">
+    Lista de cursos
+  </div>

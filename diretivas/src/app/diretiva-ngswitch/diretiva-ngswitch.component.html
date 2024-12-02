@@ -21,3 +21,18 @@
   <p *ngSwitchCase="'Lista'">Conteudo da página da lista</p>
   <p *ngSwitchDefault >Conteudo da página Home</p>
 </div>
+
+
+<h5>Removendo o * e usando o template</h5>
+
+<div class="container" [ngSwitch]="aba">
+  <ng-template [ngSwitchCase]="'Mapa'">
+    <p>Conteudo da página do Mapa</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'Lista'">
+    <p>Conteudo da página da lista</p>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <p>Conteudo da página Home</p>
+  </ng-template>
+</div>
