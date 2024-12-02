@@ -1,0 +1,23 @@
+<h1>ngSwitch</h1>
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" [class.active]="aba == 'Home'" (click)="aba = 'Home'" href="#">Home</a>
+        <a class="nav-link" [class.active]="aba == 'Mapa'" (click)="aba = 'Mapa'" href="#">Mapa</a>
+        <a class="nav-link" [class.active]="aba == 'Lista'" (click)="aba = 'Lista'" href="#">Lista</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container" [ngSwitch]="aba">
+  <p *ngSwitchCase="'Mapa'">Conteudo da página do Mapa</p>
+  <p *ngSwitchCase="'Lista'">Conteudo da página da lista</p>
+  <p *ngSwitchDefault >Conteudo da página Home</p>
+</div>
