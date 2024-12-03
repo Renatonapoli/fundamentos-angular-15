@@ -1,0 +1,16 @@
+<h1>Diretiva ngClass</h1>
+<br><br>
+<h2>
+  <i [class.bi-balloon-heart-fill]="!mudarIcone"
+    [class.bi-balloon-heart]="mudarIcone"
+    (click)="mudandoIcone()"
+  ></i>
+  <br>
+  <i
+    [ngClass]="{
+      'bi-balloon-heart': mudarIcone,
+      'bi-balloon-heart-fill': !mudarIcone
+    }"
+    (click)="mudandoIcone()"
+  ></i>
+</h2>
