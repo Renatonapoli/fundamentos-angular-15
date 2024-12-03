@@ -9,3 +9,13 @@
 <!-- <p highlight [backgroundColorDefault]="'gray'" [background]="'green'">Mudando de cor ao passar o mouse</p> -->
 <!-- TODO uma forma de usar a propriedade com o nome da diretiva -->
 <p [highlight]="'green'" [backgroundColorDefault]="'gray'">Mudando de cor ao passar o mouse</p>
+
+
+<h1>Contruindo e usando a diretiva ngEle</h1>
+
+<p *ngIf="mudarMensagem">Clicou no botão</p>
+<p #teste *ngElse="mudarMensagem">Clique no botão para mudar a mensagem</p>
+<ng-template [ngElse]="mudarMensagem">Clique no botão para mudar a mensagem</ng-template><br>
+
+
+<button (click)="mudouMensagemNaTela()">Mudar mensagem</button>
