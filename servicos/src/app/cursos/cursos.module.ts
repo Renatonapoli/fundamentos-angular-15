@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 //import { CursosService } from './cursos.service';
 import { CursosComponent } from './cursos.component';
 import { CommonModule } from '@angular/common';
