@@ -6,6 +6,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class CursosService {
 
   emitirCursoCriado = new EventEmitter<string>()
+  static criouNovoCurso = new EventEmitter<string>()
 
   private cursos: string[] = ['Angular 15', 'Javascript', 'Typescript']
 
@@ -20,6 +21,7 @@ export class CursosService {
   adicionarCursos(curso: string) {
     this.cursos.push(curso)
     this.emitirCursoCriado.emit(curso)
+    CursosService.criouNovoCurso.emit(curso)
   }
 
 
