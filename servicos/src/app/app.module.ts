@@ -15,7 +15,6 @@ import { ReceberCursoCriadoComponent } from './receber-curso-criado/receber-curs
     AppComponent,
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     AppRoutingModule,
     CursosModule,
