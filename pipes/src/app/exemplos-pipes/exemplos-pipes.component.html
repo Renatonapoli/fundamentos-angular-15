@@ -1,0 +1,10 @@
+<h5>Exemplos de pipes</h5>
+
+<p>Editora: {{ livro.Editora | uppercase }}</p>
+<p>Data: {{ livro.Data | date: 'dd/MM/yyyy' }}</p>
+<p>Preco: {{ livro.Preco | currency: 'BRL' }}</p>
+<p>Idioma: {{ livro.Idioma | lowercase }}</p>
+<p>Número de páginas: {{ livro.CapaComum | number}} páginas</p>
+<p>ISBN: {{ livro.ISBNOne | number }}</p>
+<p>ISBN: {{ livro.ISBNTwo | number}}</p>
+<p>Dimensòes: {{ livro.Dimensoes}}</p>
