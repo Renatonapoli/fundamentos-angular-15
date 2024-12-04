@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AdicionarCursoComponent } from './adicionar-curso.component';
 import { CommonModule } from '@angular/common';
 import { ReceberCursoCriadoComponent } from '../receber-curso-criado/receber-curso-criado.component';
