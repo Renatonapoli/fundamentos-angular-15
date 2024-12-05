@@ -7,3 +7,12 @@
 <p>Número de páginas: {{ livro.CapaComum | number}} páginas</p>
 
 
+<h5>Fitlro da maneira correta e seguindo as boas práticas</h5>
+
+<input type="text" [(ngModel)]="filtro">
+
+<ul>
+  <li *ngFor="let liv of obterCurso()">
+    {{ liv }}
+  </li>
+</ul>

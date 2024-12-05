@@ -8,6 +8,7 @@ import { CamelCasePipe } from './camel-case.pipe';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt'
 import { SettingsService } from './settings.service';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePt, 'pt-BR')
 @NgModule({
@@ -18,7 +19,8 @@ registerLocaleData(localePt, 'pt-BR')
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     // {

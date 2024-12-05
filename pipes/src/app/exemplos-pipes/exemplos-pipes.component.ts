@@ -15,4 +15,21 @@ export class ExemplosPipesComponent {
     CapaComum : 308,
 
   }
+
+  livros: string[] = ["Angular15", "Javascript", "Java"]
+  filtro: string = ''
+
+  obterCurso() {
+    if(this.livros.length === 0 || this.livros === undefined ||
+      this.filtro.trim() === '') {
+        return this.livros
+      }
+
+    return this.livros.filter(liv => {
+      if(liv.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0){
+        return true
+      }
+      return false
+    })
+  }
 }
