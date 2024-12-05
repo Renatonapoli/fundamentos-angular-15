@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { delay, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -32,4 +33,13 @@ export class ExemplosPipesComponent {
       return false
     })
   }
+
+  valorAsync = new Promise((resolve, reject) =>{
+    setTimeout(() => resolve("Valor Assícrono"), 2000 )
+  })
+
+  valorAsync2 = of(2000).pipe(
+    delay(2000),
+    map(valor => "Valor Assícrono")
+  )
 }
