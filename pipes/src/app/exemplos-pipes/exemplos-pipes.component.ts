@@ -13,8 +13,6 @@ export class ExemplosPipesComponent {
     Preco: 44.99,
     Idioma: "Português",
     CapaComum : 308,
-    ISBNOne: 6558380544,
-    ISBNTwo: 978-6558380542,
-    Dimensoes: "15.5 x 1.7 x 23 cm"
+
   }
 }
