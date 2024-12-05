@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./curso-detalhe.component.css']
 })
 export class CursoDetalheComponent {
-  @Input() id: string = ''
+  id: string = ''
 
   constructor(private idRouter: ActivatedRoute) {
    this.id = this.idRouter.snapshot.params['id']
