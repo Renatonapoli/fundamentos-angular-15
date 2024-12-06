@@ -1,3 +1,5 @@
+<p>Página: {{ pagina }}</p>
+
 <p>Lista de cursos</p>
 
 <div class="collection">
@@ -6,3 +8,5 @@
   [routerLink]="['/curso-detalhe', curso.id]"
   >{{ curso.nome }}</a>
 </div>
+
+<button (click)="proximaPagina()">Proxima página</button>
