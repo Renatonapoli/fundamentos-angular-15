@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
 import { CursosComponent } from './cursos.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
-import { RouterModule } from '@angular/router';
+import { CursosRoutingModule } from './cursos.routing.module';
 
 
 
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    CursosRoutingModule
   ]
 })
 export class CursosModule { }
