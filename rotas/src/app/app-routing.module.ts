@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
+import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'cursos',
     component: CursosComponent
+  },
+  {
+    path: 'naoEncontrado',
+    component: CursoNaoEncontradoComponent
   },
   {
     path: 'curso-detalhe/:id',
