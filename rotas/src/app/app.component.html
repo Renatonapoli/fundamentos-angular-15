@@ -4,15 +4,15 @@
     <ul id="nav-mobile" class="left">
       <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
       <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/curso-detalhe', idCurso]">Curso com ID</a></li>
+      <!-- <li routerLinkActive="active"><a [routerLink]="['/curso-detalhe', idCurso]">Curso com ID</a></li> -->
       <li routerLinkActive="active"><a [routerLink]="['/alunos']">Alunos</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <p>Entre com o id do curso</p>
-  <input [(ngModel)]="idCurso">
+  <!-- <p>Entre com o id do curso</p>
+  <input [(ngModel)]="idCurso"> -->
 
 
   <router-outlet></router-outlet>
