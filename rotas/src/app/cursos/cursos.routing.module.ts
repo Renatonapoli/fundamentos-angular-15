@@ -7,7 +7,7 @@ import { CursoNaoEncontradoComponent } from '../cursos/curso-nao-encontrado/curs
 const cursosRoutes: Routes = [
   {
     path: 'cursos',
-    component: CursosComponent
+    component: CursosComponent,
   },
   {
     path: 'naoEncontrado',
