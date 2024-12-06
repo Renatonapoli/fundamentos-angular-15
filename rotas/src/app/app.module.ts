@@ -3,26 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { CursosComponent } from './cursos/cursos.component';
-import { HomeComponent } from './home/home.component';
-import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 import { FormsModule } from '@angular/forms';
-import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { CursosModule } from './cursos/cursos.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CursosComponent,
     HomeComponent,
-    CursoDetalheComponent,
-    CursoNaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CursosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

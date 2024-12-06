@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CursosService } from '../cursos/cursos.service';
+import { CursosService } from '../cursos.service';
 
 @Component({
   selector: 'app-curso-detalhe',
@@ -19,7 +19,7 @@ export class CursoDetalheComponent implements OnInit {
     private router: Router
   ) {
    this.id = this.idRouter.snapshot.params['id']
-   console.log(idRouter)
+
   }
 
   ngOnInit() {

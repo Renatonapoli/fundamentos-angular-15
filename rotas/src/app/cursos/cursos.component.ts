@@ -27,8 +27,6 @@ export class CursosComponent implements OnInit, OnDestroy {
         this.pagina = queryParams['pagina'] || 1
       }
     )
-
-    console.log(this.inscricao)
   }
 
   ngOnDestroy() {
