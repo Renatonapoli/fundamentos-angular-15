@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth-service.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,4 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   idCurso: string = ''
+
+  mostrarMenu: boolean = false
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    )
+  }
+
+  ngOnDestroy() {
+    this.authService.mostrarMenuEmitter.unsubscribe()
+  }
 }
