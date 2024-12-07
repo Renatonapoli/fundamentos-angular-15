@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GuardAuth } from './guard-auth';
+import { GuardAuth } from './guard.auth';
 
 describe('GuardAuthService', () => {
   let service: typeof GuardAuth;

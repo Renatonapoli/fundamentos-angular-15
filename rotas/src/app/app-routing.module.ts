@@ -3,23 +3,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { GuardAuth } from './guards/guard-auth';
+import { GuardAuth } from './guards/guard.auth';
+import { CursosGuard } from './guards/cursos.guard';
+import { AlunosGuard } from './guards/alunos.guard';
 
 const routes: Routes = [
   {
     path: 'cursos',
     loadChildren: () => import('../app/cursos/cursos.module').then(x => x.CursosModule),
-    canActivate: [GuardAuth]
+    canActivate: [GuardAuth],
+    canActivateChild: [CursosGuard]
   },
   {
     path: 'alunos',
     loadChildren: () => import('../app/alunos/alunos.module').then(x => x.AlunosModule),
-    canActivate: [GuardAuth]
+    canActivate: [GuardAuth],
+    canActivateChild: [AlunosGuard]
+
   },
   {
     path: '',
     component: HomeComponent,
-    canActivate: [GuardAuth]
+    canActivate: [GuardAuth],
+
   },
   {
     path: 'login',
