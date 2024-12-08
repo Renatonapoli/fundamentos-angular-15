@@ -11,6 +11,7 @@ export const AlunosGuard: CanActivateChildFn = (
   const authService = inject(AuthService)
   const router = inject(Router)
 
+  console.log('AlunosGuard: Rotas filhas')
 
   if (authService.usuarioEstaAutenticado()) {
     // console.log(childRote)
