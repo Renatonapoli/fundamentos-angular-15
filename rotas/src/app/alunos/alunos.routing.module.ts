@@ -3,11 +3,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { AlunosComponent } from "./alunos.component";
 import { AlunoDetalheComponent } from "./aluno-detalhe/aluno-detalhe.component";
 import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
+import { AlunosDeActivateGurad } from "../guards/alunos.deactivate.guards";
+import { AlunosGuard } from "../guards/alunos.guard";
 
 const alunosRoutes: Routes = [
   {
     path:'',
     component: AlunosComponent,
+    canActivateChild: [AlunosGuard],
     children:[
       {
         path:'novo',
@@ -19,7 +22,8 @@ const alunosRoutes: Routes = [
       },
       {
         path:':id/editar',
-        component: AlunoFormComponent
+        component: AlunoFormComponent,
+        canDeactivate: [AlunosDeActivateGurad]
       },
     ],
   },

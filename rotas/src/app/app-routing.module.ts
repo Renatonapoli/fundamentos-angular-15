@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GuardAuth } from './guards/guard.auth';
 import { CursosGuard } from './guards/cursos.guard';
-import { AlunosGuard } from './guards/alunos.guard';
 
 const routes: Routes = [
   {
@@ -17,8 +16,7 @@ const routes: Routes = [
   {
     path: 'alunos',
     loadChildren: () => import('../app/alunos/alunos.module').then(x => x.AlunosModule),
-    canActivate: [GuardAuth],
-    canActivateChild: [AlunosGuard]
+    canActivate: [GuardAuth]
 
   },
   {

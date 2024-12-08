@@ -13,12 +13,12 @@ export const AlunosGuard: CanActivateChildFn = (
 
 
   if (authService.usuarioEstaAutenticado()) {
-    console.log(childRote)
-    console.log(state)
+    // console.log(childRote)
+    // console.log(state)
 
     if(state.url.includes('editar')) {
-      alert('Você não possui autorização')
-      return false
+      // alert('Você não possui autorização')
+      // return false
     }
 
     return true
