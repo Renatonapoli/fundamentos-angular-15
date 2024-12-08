@@ -1,9 +1,9 @@
 import { ActivatedRouteSnapshot, CanDeactivateFn, RouterStateSnapshot } from "@angular/router";
-import { AlunoFormComponent } from "../alunos/aluno-form/aluno-form.component";
 import { Observable } from "rxjs";
+import { FormCanDeActivate } from "./formCanDeActivate";
 
-export const AlunosDeActivateGurad: CanDeactivateFn<AlunoFormComponent> = (
-  component: AlunoFormComponent,
+export const AlunosDeActivateGurad: CanDeactivateFn<FormCanDeActivate> = (
+  component: FormCanDeActivate,
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ): Observable<boolean> | Promise<boolean> | boolean => {
@@ -11,7 +11,7 @@ export const AlunosDeActivateGurad: CanDeactivateFn<AlunoFormComponent> = (
   console.log('canDeActivate')
 
 
-  return component.podeMudarRota()
+  return component.podeDesativar()
 
 
   }
