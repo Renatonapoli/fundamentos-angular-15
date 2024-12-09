@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './login/auth-service.service';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 // import { CursosModule } from './cursos/cursos.module';
 // import { AlunosModule } from './alunos/alunos.module';
 
@@ -16,6 +17,7 @@ import { AuthService } from './login/auth-service.service';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    PaginaNaoEncontradaComponent,
   ],
   imports: [
     BrowserModule,
