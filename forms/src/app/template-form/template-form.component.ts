@@ -17,6 +17,5 @@ export class TemplateFormComponent {
   onSubmit(form:any) {
     console.log(form)
 
-    console.log(this.usuario)
   }
 }
