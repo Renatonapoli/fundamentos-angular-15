@@ -1,3 +1,4 @@
+import { Usuario } from './../../../../rotas/src/app/login/usuario';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +8,15 @@ import { Component } from '@angular/core';
 })
 export class TemplateFormComponent {
 
+  usuario: any = {
+    nome: 'Renato',
+    email: 'renato.napoli75@gmail.com'
+  }
+
+
   onSubmit(form:any) {
     console.log(form)
+
+    console.log(this.usuario)
   }
 }
