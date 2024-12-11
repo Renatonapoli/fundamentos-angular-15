@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 export class TemplateFormComponent {
 
   usuario: any = {
-    nome: 'Renato',
-    email: 'renato.napoli75@gmail.com'
+    nome: null,
+    email: null
   }
 
 
