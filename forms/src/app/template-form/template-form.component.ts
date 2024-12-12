@@ -18,4 +18,15 @@ export class TemplateFormComponent {
     console.log(form)
 
   }
+
+  validaCampo(campo: any) {
+    return !campo.valid && campo.touched
+  }
+
+  onError(campo: any) {
+    return {
+      hasError: this.validaCampo(campo),
+      hasFeedback: this.validaCampo(campo)
+    }
+  }
 }
