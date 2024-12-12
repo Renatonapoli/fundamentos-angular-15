@@ -1,4 +1,4 @@
-import { Usuario } from './../../../../rotas/src/app/login/usuario';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,6 +12,8 @@ export class TemplateFormComponent {
     nome: null,
     email: null
   }
+
+  constructor(private http: HttpClient) {}
 
 
   onSubmit(form:any) {
@@ -27,6 +29,26 @@ export class TemplateFormComponent {
     return {
       hasError: this.validaCampo(campo),
       hasFeedback: this.validaCampo(campo)
+    }
+  }
+
+  consultaCEP(event: FocusEvent) {
+    const inputElement = event.target as HTMLInputElement
+    const cep = inputElement?.value?.replace(/\D/g, '');
+
+    if (cep != "") {
+
+      //Expressão regular para validar o CEP.
+      var validacep = /^[0-9]{8}$/;
+
+      if(validacep.test(cep)) {
+
+        this.http.get(`//viacep.com.br/ws/${cep}/json`)
+        .pipe(dados => dados)
+        .subscribe(dados => {
+          console.log(dados)
+        })
+      }
     }
   }
 }
