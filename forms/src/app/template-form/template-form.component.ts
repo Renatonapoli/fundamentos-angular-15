@@ -32,7 +32,7 @@ export class TemplateFormComponent {
     }
   }
 
-  consultaCEP(event: FocusEvent) {
+  consultaCEP(event: FocusEvent, _form: any) {
     const inputElement = event.target as HTMLInputElement
     const cep = inputElement?.value?.replace(/\D/g, '');
 
@@ -46,9 +46,22 @@ export class TemplateFormComponent {
         this.http.get(`//viacep.com.br/ws/${cep}/json`)
         .pipe(dados => dados)
         .subscribe(dados => {
-          console.log(dados)
+          this.populaForm(dados, _form)
         })
       }
     }
+  }
+
+  populaForm(dados: any, _form: any) {
+    _form.form.patchValue({
+      endereco: {
+        cep: dados.cep,
+        rua: dados.logradouro,
+        complemento: dados.complemento || '',
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    })
   }
 }
