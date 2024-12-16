@@ -19,6 +19,9 @@ export class TemplateFormComponent {
   onSubmit(form:any) {
     console.log(form)
 
+    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+    .pipe(res => res)
+    .subscribe(dados => console.log(dados))
   }
 
   validaCampo(campo: any) {
