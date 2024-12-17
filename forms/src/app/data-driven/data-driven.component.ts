@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
   templateUrl: './data-driven.component.html',
   styleUrls: ['./data-driven.component.css']
 })
-export class DataDrivenComponent {
+export class DataDrivenComponent implements OnInit {
 
   formulario: FormGroup | undefined
 
- constructor() {}
+ constructor(private formBuilder: FormBuilder) {}
+
+ ngOnInit() {
+
+  // this.formulario = new FormGroup({
+  //   nome: new FormControl(null),
+  //   email: new FormControl(null),
+  // })
+
+  this.formulario = this.formBuilder.group({
+    nome: [null],
+    email: [null],
+  })
+ }
 }
