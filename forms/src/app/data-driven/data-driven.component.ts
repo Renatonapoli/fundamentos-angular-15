@@ -34,6 +34,16 @@ export class DataDrivenComponent implements OnInit {
 
   this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
     .pipe(res => res)
-    .subscribe(dados => console.log(dados))
+    .subscribe({
+      next: (dados) => {
+        console.log(dados)
+        this.resetar()
+      },
+      error: () =>  alert('error')
+    })
+  }
+
+  resetar() {
+    this.formulario.reset()
   }
 }

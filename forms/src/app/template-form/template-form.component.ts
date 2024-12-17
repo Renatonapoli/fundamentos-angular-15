@@ -16,12 +16,15 @@ export class TemplateFormComponent {
   constructor(private http: HttpClient) {}
 
 
-  onSubmit(form:any) {
-    console.log(form)
+  onSubmit(formulario:any) {
+    console.log(formulario)
 
-    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+    this.http.post('https://httpbin.org/post', JSON.stringify(formulario.value))
     .pipe(res => res)
-    .subscribe(dados => console.log(dados))
+    .subscribe(dados => {
+      console.log(dados)
+      formulario.form.reset()
+    })
   }
 
   validaCampo(campo: any) {
