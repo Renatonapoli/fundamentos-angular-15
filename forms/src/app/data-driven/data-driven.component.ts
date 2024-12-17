@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class DataDrivenComponent {
 
+  formulario: FormGroup | undefined
+
+ constructor() {}
 }

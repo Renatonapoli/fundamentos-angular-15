@@ -6,7 +6,7 @@ import { DataDrivenComponent } from './data-driven/data-driven.component';
 const routes: Routes = [
   {path: 'templateForm', component: TemplateFormComponent},
   {path: 'dataForm', component: DataDrivenComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'templateForm' },
+  {path: '', pathMatch: 'full', redirectTo: 'dataForm' },
 ];
 
 @NgModule({
