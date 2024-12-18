@@ -26,13 +26,16 @@ export class DataDrivenComponent implements OnInit {
   this.formulario = this.formBuilder.group({
     nome: [null, Validators.required],
     email: [null, [Validators.required, Validators.email]],
-    cep: [null, Validators.required],
-    numero: [null, Validators.required],
-    complemento: [null],
-    rua: [null, Validators.required],
-    bairro: [null, Validators.required],
-    cidade: [null, Validators.required],
-    estado: [null, Validators.required]
+
+    endereco: this.formBuilder.group({
+      cep: [null, Validators.required],
+      numero: [null, Validators.required],
+      complemento: [null],
+      rua: [null, Validators.required],
+      bairro: [null, Validators.required],
+      cidade: [null, Validators.required],
+      estado: [null, Validators.required]
+    })
 
     // Validators.pattern("[A-Z]0-9....")
     // Validators.minLength(3), Validators.maxLength(9)
