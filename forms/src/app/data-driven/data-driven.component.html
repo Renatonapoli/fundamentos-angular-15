@@ -1,5 +1,6 @@
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div class="form-group">
+  <div class="form-group" [ngClass]="onError('nome')"
+  >
 
     <div class="col-sm-12">
       <label for="nome" class="control-label">Nome</label>
@@ -8,6 +9,11 @@
     <div class="col-sm-12">
       <input type="text" class="form-control"
       id="nome" placeholder="Nome" formControlName="nome" />
+
+      <app-campo-control-erro
+          [mostraErro]="validaCampo('nome')"
+          mensagemDeErro="O nome é obrigatório">
+        </app-campo-control-erro>
     </div>
   </div>
 
@@ -21,6 +27,15 @@
     <div class="col-sm-12">
         <input type="text" class="form-control" formControlName="email"
         id="email" placeholder="nome@email.com"/>
+
+        <app-campo-control-erro
+        [mostraErro]="validaCampo('email')"
+        mensagemDeErro="O email é obrigatório">
+      </app-campo-control-erro>
+        <app-campo-control-erro
+        [mostraErro]="verificarEmailInvalido()"
+        mensagemDeErro="O email é inválido">
+      </app-campo-control-erro>
     </div>
   </div>
 

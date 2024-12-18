@@ -49,4 +49,22 @@ export class DataDrivenComponent implements OnInit {
   resetar() {
     this.formulario.reset()
   }
+
+  validaCampo(campo: any) {
+    return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched
+  }
+
+  verificarEmailInvalido() {
+    let campoEmail = this.formulario.get('email')
+    if (campoEmail?.errors) {
+      return campoEmail?.errors['email']
+    }
+  }
+
+  onError(campo: any) {
+    return {
+      hasError: this.validaCampo(campo),
+      hasFeedback: this.validaCampo(campo)
+    }
+  }
 }

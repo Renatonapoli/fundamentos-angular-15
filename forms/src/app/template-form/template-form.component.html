@@ -1,6 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
   <div class="form-group"
-    ngClass="onError(nome)"
+    [ngClass]="onError(nome)"
     >
 
     <div class="col-sm-12">
