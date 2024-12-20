@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DropdownService } from '../shared/services/dropdown.service';
+import { EstadosBr } from '../shared/models/estado-br';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-data-driven',
@@ -10,13 +13,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DataDrivenComponent implements OnInit {
 
   formulario!: FormGroup;
+  estados!: EstadosBr[]
 
  constructor(
   private formBuilder: FormBuilder,
-  private http: HttpClient
+  private http: HttpClient,
+  private dropdownService: DropdownService
 ) {}
 
  ngOnInit() {
+
+  this.dropdownService.getEstado()
+    .subscribe(pipe(estado => console.log(estado)))
 
   // this.formulario = new FormGroup({
   //   nome: new FormControl(null),
