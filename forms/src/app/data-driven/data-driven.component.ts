@@ -45,23 +45,41 @@ export class DataDrivenComponent implements OnInit {
  onSubmit() {
   console.log(this.formulario)
 
-  this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-    .pipe(res => res)
-    .subscribe({
-      next: (dados) => {
-        console.log(dados)
-        this.resetar()
-      },
-      error: () =>  alert('error')
-    })
+  if(this.formulario.valid) {
+    this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+      .pipe(res => res)
+      .subscribe({
+        next: (dados) => {
+          console.log(dados)
+          this.resetar()
+        },
+        error: () =>  alert('error')
+      })
+    }else {
+      this.verificaAsValidacoesDoFormulario(this.formulario)
+    }
+
   }
+
+  verificaAsValidacoesDoFormulario(formGroup: FormGroup) {
+    console.log('Fomulário inválido')
+      Object.keys(formGroup.controls).forEach(campo => {
+        console.log(campo)
+        const controle = formGroup.get(campo)
+        controle?.markAsDirty()
+        if (controle instanceof FormGroup) {
+          this.verificaAsValidacoesDoFormulario(controle)
+        }
+      })
+  }
+
 
   resetar() {
     this.formulario.reset()
   }
 
   validaCampo(campo: any) {
-    return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched
+    return !this.formulario.get(campo)?.valid && (this.formulario.get(campo)?.touched || this.formulario.get(campo)?.dirty)
   }
 
   verificarEmailInvalido() {
