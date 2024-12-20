@@ -77,4 +77,40 @@ export class DataDrivenComponent implements OnInit {
       hasFeedback: this.validaCampo(campo)
     }
   }
+
+  consultaCEP() {
+    let cep = this.formulario.get('endereco.cep')?.value
+
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != "") {
+
+      //Expressão regular para validar o CEP.
+      var validacep = /^[0-9]{8}$/;
+
+      if(validacep.test(cep)) {
+
+        this.formulario.reset()
+
+        this.http.get(`//viacep.com.br/ws/${cep}/json`)
+        .pipe(dados => dados)
+        .subscribe(dados => {
+          this.populaForm(dados)
+        })
+      }
+    }
+  }
+
+  populaForm(dados: any) {
+    this.formulario.patchValue({
+      endereco: {
+        cep: dados.cep,
+        rua: dados.logradouro,
+        complemento: dados.complemento || '',
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    })
+  }
 }
