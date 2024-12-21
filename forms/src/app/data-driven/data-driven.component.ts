@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DropdownService } from '../shared/services/dropdown.service';
 import { EstadosBr } from '../shared/models/estado-br';
 import { pipe } from 'rxjs';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 
 @Component({
   selector: 'app-data-driven',
@@ -18,7 +19,8 @@ export class DataDrivenComponent implements OnInit {
  constructor(
   private formBuilder: FormBuilder,
   private http: HttpClient,
-  private dropdownService: DropdownService
+  private dropdownService: DropdownService,
+  private consultaCepService: ConsultaCepService
 ) {}
 
  ngOnInit() {
@@ -107,23 +109,9 @@ export class DataDrivenComponent implements OnInit {
   consultaCEP() {
     let cep = this.formulario.get('endereco.cep')?.value
 
-    cep = cep.replace(/\D/g, '');
-
-    if (cep != "") {
-
-      //Expressão regular para validar o CEP.
-      var validacep = /^[0-9]{8}$/;
-
-      if(validacep.test(cep)) {
-
-        this.formulario.reset()
-
-        this.http.get(`//viacep.com.br/ws/${cep}/json`)
-        .pipe(dados => dados)
-        .subscribe(dados => {
-          this.populaForm(dados)
-        })
-      }
+    if( cep !=null && cep !== '') {
+      this.consultaCepService.consultaCEP(cep)
+      .subscribe((dados: any) => this.populaForm(dados))
     }
   }
 
