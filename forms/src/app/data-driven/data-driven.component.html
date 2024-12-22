@@ -159,6 +159,22 @@
         </app-campo-control-erro>
         </div>
       </div>
+
+      <div class="col-md-3" [ngClass]="onError('frameworks')">
+        <label for="frameworks">Frameworks</label>
+        <div id="frameworks" class="row">
+          <div class="checkbox" class="col-sm-4" formArrayName="frameworks"
+            *ngFor="let item of frameworksArray.controls; let i = index">
+            <label class="checkbox-inline">
+              <input type="checkbox" [formControlName]="i"> {{ frameworks[i] }}
+            </label>
+          </div>
+        </div>
+          <app-campo-control-erro
+          [mostraErro]="validaCampo('termos')"
+          mensagemDeErro="Por favor, aceito os termos!">
+        </app-campo-control-erro>
+      </div>
     </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button (click)="resetar()" class="btn btn-default ml-lg">Cancelar</button>
