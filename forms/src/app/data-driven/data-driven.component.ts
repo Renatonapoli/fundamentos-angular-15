@@ -54,7 +54,7 @@ export class DataDrivenComponent implements OnInit {
     email: [null, [Validators.required, Validators.email]],
 
     endereco: this.formBuilder.group({
-      cep: [null, Validators.required],
+      cep: [null, [Validators.required, FormValidations.cepValidator]],
       numero: [null, Validators.required],
       complemento: [null],
       rua: [null, Validators.required],
@@ -117,23 +117,25 @@ get frameworksArray(): FormArray {
 
   verificaAsValidacoesDoFormulario(formGroup: FormGroup) {
     console.log('Fomulário inválido')
-      Object.keys(formGroup.controls).forEach(campo => {
-        console.log(campo)
-        const controle = formGroup.get(campo)
-        controle?.markAsDirty()
-        if (controle instanceof FormGroup) {
-          this.verificaAsValidacoesDoFormulario(controle)
-        }
-      })
+    Object.keys(formGroup.controls).forEach(campo => {
+      console.log(campo)
+      const controle = formGroup.get(campo)
+      controle?.markAsDirty()
+      if (controle instanceof FormGroup) {
+        this.verificaAsValidacoesDoFormulario(controle)
+      }
+    })
   }
-
 
   resetar() {
     this.formulario.reset()
   }
 
   validaCampo(campo: any) {
-    return !this.formulario.get(campo)?.valid && (this.formulario.get(campo)?.touched || this.formulario.get(campo)?.dirty)
+    return (
+      this.formulario.get(campo)?.hasError('required') &&
+      (this.formulario.get(campo)?.touched || this.formulario.get(campo)?.dirty)
+    )
   }
 
   verificarEmailInvalido() {

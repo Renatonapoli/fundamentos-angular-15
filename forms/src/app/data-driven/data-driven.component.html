@@ -47,8 +47,12 @@
           formControlName="cep" (blur)="consultaCEP()">
 
           <app-campo-control-erro
-            [mostraErro]="validaCampo('endereco.cep')"
-            mensagemDeErro="O cep é obrigatório">
+            [mostraErro]="formulario.get('endereco.cep')?.hasError('required')"
+            mensagemDeErro="O campo é obrigatório">
+          </app-campo-control-erro>
+          <app-campo-control-erro
+            [mostraErro]="formulario.get('endereco.cep')?.hasError('cepInvalido')"
+            mensagemDeErro="Cep inválido">
           </app-campo-control-erro>
         </div>
 

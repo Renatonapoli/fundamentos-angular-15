@@ -1,4 +1,4 @@
-import { AbstractControl, FormArray, ValidatorFn } from "@angular/forms";
+import { AbstractControl, FormArray, FormControl, ValidatorFn } from "@angular/forms";
 
 export class FormValidations {
 
@@ -22,7 +22,16 @@ export class FormValidations {
       }
       return null; // Se não for um FormArray, não aplica a validação
     };
+  }
 
+  static cepValidator(control: FormControl) {
+
+    const cep = control.value
+    if (!cep) {
+      return null
+    }
+    const validaCep = /^[0-9]{8}$/
+    return validaCep.test(cep) ? null : { cepInvalido: true }
   }
 
 }
