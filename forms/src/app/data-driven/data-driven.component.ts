@@ -1,7 +1,8 @@
+import { FormValidations } from './../shared/services/form-validations';
 import { EstadosBr } from './../shared/models/estado-br';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { DropdownService } from '../shared/services/dropdown.service';
 import { Observable, pipe } from 'rxjs';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
@@ -76,8 +77,10 @@ export class DataDrivenComponent implements OnInit {
 
  buildFrameworks() {
   const values = this.frameworks.map(v => new FormControl(false));
-  return this.formBuilder.array(values);
+  return this.formBuilder.array(values, FormValidations.requiredMinCheckbox(1));
 }
+
+
 
 get frameworksArray(): FormArray {
   return this.formulario.get('frameworks') as FormArray
