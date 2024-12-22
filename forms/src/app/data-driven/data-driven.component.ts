@@ -61,7 +61,8 @@ export class DataDrivenComponent implements OnInit {
 
     cargo: [null],
     tecnologias: [null],
-    newsletter: ['s']
+    newsletter: ['s'],
+    termos: [null, Validators.pattern('true')]
 
     // Validators.pattern("[A-Z]0-9....")
     // Validators.minLength(3), Validators.maxLength(9)

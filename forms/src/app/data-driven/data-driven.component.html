@@ -146,6 +146,20 @@
         </div>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="col-md-3" [ngClass]="onError('termos')">
+        <div class="chekbox">
+          <label class="checkbox-inline">
+            <input type="checkbox" formControlName="termos">Aceito os termos
+          </label>
+          <app-campo-control-erro
+          [mostraErro]="validaCampo('termos')"
+          mensagemDeErro="Por favor, aceito os termos!">
+        </app-campo-control-erro>
+        </div>
+      </div>
+    </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button (click)="resetar()" class="btn btn-default ml-lg">Cancelar</button>
   <button (click)="setarCargo()" class="btn btn-info ml-lg">Setar cargo</button>
