@@ -38,6 +38,23 @@
       </div>
     </div>
 
+  <div class="form-group"
+   ngClass="onError(confirmaEmail)">
+      <div class="col-sm-12">
+        <label for="confirmarEmail" class="control-label">Confirmar email</label>
+      </div>
+
+      <div class="col-sm-12">
+          <input type="confirmarEmail" class="form-control" formControlName="confirmarEmail"
+          id="email" placeholder="nome@email.com"/>
+
+          <app-campo-control-erro
+          [mostraErro]="formulario.get('confirmarEmail')?.hasError('equalsTo')"
+          mensagemDeErro="Os emails não são iguais.">
+        </app-campo-control-erro>
+      </div>
+    </div>
+
 
     <div formGroupName="endereco">
       <div class="form-group" ngClass="onError(cep)">
