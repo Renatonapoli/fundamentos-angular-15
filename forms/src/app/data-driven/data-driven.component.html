@@ -121,8 +121,18 @@
         </div>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="col-md-3">
+        <label for="cardo" class="control-label">Cargo</label>
+        <select class="form-control" id="cargo" formControlName="cargo" [compareWith]="compararCargo">
+          <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.nivel }}</option>
+        </select>
+      </div>
+    </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button (click)="resetar()" class="btn ml-lg">Cancelar</button>
+  <button (click)="setarCargo()" class="btn ml-lg">Setar cargo</button>
 
   <app-form-debug [form]="formulario"></app-form-debug>
 </form>
