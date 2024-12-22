@@ -129,10 +129,17 @@
           <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.nivel }}</option>
         </select>
       </div>
+      <div class="col-md-3">
+        <label for="tecnologias" class="control-label">Tecnologias</label>
+        <select multiple class="form-control" id="tecnologias" formControlName="tecnologias" >
+          <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome">{{ tecnologia.desc }}</option>
+        </select>
+      </div>
     </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button (click)="resetar()" class="btn ml-lg">Cancelar</button>
-  <button (click)="setarCargo()" class="btn ml-lg">Setar cargo</button>
+  <button (click)="resetar()" class="btn btn-default ml-lg">Cancelar</button>
+  <button (click)="setarCargo()" class="btn btn-info ml-lg">Setar cargo</button>
+  <button (click)="setarTecnologias()" class="btn btn-info ml-lg">Setar tecnologias</button>
 
   <app-form-debug [form]="formulario"></app-form-debug>
 </form>
