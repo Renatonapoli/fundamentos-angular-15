@@ -54,7 +54,7 @@ export class DataDrivenComponent implements OnInit {
   // })
 
   this.formulario = this.formBuilder.group({
-    nome: [null, Validators.required],
+    nome: [null, [Validators.required, Validators.minLength(3)]],
     email: [null, [Validators.required, Validators.email], [this.validarEmailAssincrono.bind(this)]],
     confirmarEmail: [null, [Validators.required, FormValidations.equalsTo('email')]],
 
