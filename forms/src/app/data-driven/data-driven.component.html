@@ -73,7 +73,7 @@
         <div class="col-md-3">
           <label for="cep" class="control-label">Cep</label>
           <input type="text" class="form-control" id="cep"
-          formControlName="cep" (blur)="consultaCEP()">
+          formControlName="cep">
 
           <app-campo-control-erro
             [mostraErro]="formulario.get('endereco.cep')?.hasError('required')"

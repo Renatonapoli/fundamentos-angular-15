@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { DropdownService } from '../shared/services/dropdown.service';
-import { map, Observable, pipe } from 'rxjs';
+import { distinctUntilChanged, EMPTY, empty, map, Observable, pipe, switchMap, tap } from 'rxjs';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { FormArray } from '@angular/forms';
 
@@ -59,7 +59,7 @@ export class DataDrivenComponent implements OnInit {
     confirmarEmail: [null, [Validators.required, FormValidations.equalsTo('email')]],
 
     endereco: this.formBuilder.group({
-      cep: [null, [Validators.required, FormValidations.cepValidator]],
+      cep: [null, [Validators.required, FormValidations.cepValidator,]],
       numero: [null, Validators.required],
       complemento: [null],
       rua: [null, Validators.required],
@@ -72,13 +72,34 @@ export class DataDrivenComponent implements OnInit {
     tecnologias: [null],
     newsletter: ['s'],
     termos: [null, Validators.pattern('true')],
-    frameworks: this.buildFrameworks()
+    frameworks: this.buildFrameworks(),
+
 
 
     // Validators.pattern("[A-Z]0-9....")
     // Validators.minLength(3), Validators.maxLength(9)
   })
- }
+  const cepControl = this.formulario.get('endereco.cep');
+
+if (cepControl) {
+  cepControl.statusChanges
+    .pipe(
+      distinctUntilChanged(),
+      tap(status => console.log('status CEP:', status)),
+      switchMap(status =>
+        status === 'VALID'
+          ? this.consultaCepService.consultaCEP(cepControl.value)
+          : EMPTY // Substitui o deprecated `empty()`
+      )
+    )
+    .subscribe(dados => {
+      if (dados) {
+        this.populaForm(dados);
+      }
+    });
+  }
+
+}
 
  buildFrameworks() {
   const values = this.frameworks.map(v => new FormControl(false));
