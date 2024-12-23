@@ -1,10 +1,11 @@
+import { VerificaEmailService } from './services/verifica-email.service';
 import { FormValidations } from './../shared/services/form-validations';
 import { EstadosBr } from './../shared/models/estado-br';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { DropdownService } from '../shared/services/dropdown.service';
-import { Observable, pipe } from 'rxjs';
+import { map, Observable, pipe } from 'rxjs';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { FormArray } from '@angular/forms';
 
@@ -28,15 +29,18 @@ export class DataDrivenComponent implements OnInit {
   private formBuilder: FormBuilder,
   private http: HttpClient,
   private dropdownService: DropdownService,
-  private consultaCepService: ConsultaCepService
+  private consultaCepService: ConsultaCepService,
+  private verificaEmailService: VerificaEmailService
 ) {}
 
  ngOnInit() {
 
+  // this.verificaEmailService.verificaEmail('email@email.com').subscribe()
   this.estados = this.dropdownService.getEstado()
   this.cargos = this.dropdownService.getCargos()
   this.tecnologias = this.dropdownService.getTecnologias()
   this.newsletterOp = this.dropdownService.getNewsletter()
+
 
   // this.dropdownService.getEstado()
   //   .subscribe(dados => {
@@ -51,7 +55,7 @@ export class DataDrivenComponent implements OnInit {
 
   this.formulario = this.formBuilder.group({
     nome: [null, Validators.required],
-    email: [null, [Validators.required, Validators.email]],
+    email: [null, [Validators.required, Validators.email], [this.validarEmailAssincrono.bind(this)]],
     confirmarEmail: [null, [Validators.required, FormValidations.equalsTo('email')]],
 
     endereco: this.formBuilder.group({
@@ -139,7 +143,7 @@ get frameworksArray(): FormArray {
     )
   }
 
-  verificarEmailInvalido() {
+  validarEmail() {
     let campoEmail = this.formulario.get('email')
     if (campoEmail?.errors) {
       return campoEmail?.errors['email']
@@ -187,5 +191,10 @@ get frameworksArray(): FormArray {
 
   setarTecnologias() {
     return this.formulario.get('tecnologias')?.setValue(['java', 'javascript', 'php'])
+  }
+
+  validarEmailAssincrono(formControl: FormControl) {
+    return this.verificaEmailService.verificaEmail(formControl.value)
+      .pipe(map(emailExiste => emailExiste ? { emailInvalido: true }: null))
   }
 }
