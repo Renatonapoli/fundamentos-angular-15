@@ -40,21 +40,21 @@ export class CursosListaComponent implements OnInit {
       })
     )
 
-    this.cursoService.list()
-    .pipe(
-      catchError(error => {
-        console.log(error)
-        this.handleError()
-        return EMPTY
-      })
-    )
-    .subscribe(
-      dados => {
-        console.log(dados)
-      }
+    // this.cursoService.list()
+    // .pipe(
+    //   catchError(error => {
+    //     console.log(error)
+    //     this.handleError()
+    //     return EMPTY
+    //   })
+    // )
+    // .subscribe(
+    //   dados => {
+    //     console.log(dados)
+    //   }
       // error => console.error(error),
       // () => console.log('Observable completo')
-    )
+    // )
   }
 
   handleError() {
