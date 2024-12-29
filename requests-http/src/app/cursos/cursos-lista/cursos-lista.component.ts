@@ -11,14 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-cursos-lista',
   templateUrl: './cursos-lista.component.html',
   styleUrls: ['./cursos-lista.component.scss'],
-  preserveWhitespaces: true
+  preserveWhitespaces: true,
 })
 export class CursosListaComponent implements OnInit {
-  cursos!: Curso[]
+  cursos!: Curso[];
   bsModalRef!: BsModalRef;
 
-  cursos$!: Observable<Curso[]>
-  error$ = new Subject<boolean>()
+  cursos$!: Observable<Curso[]>;
+  error$ = new Subject<boolean>();
 
   constructor(
     private cursoService: CursosService,
@@ -30,18 +30,17 @@ export class CursosListaComponent implements OnInit {
 
   ngOnInit() {
     // this.cursoService.list().subscribe(dados => this.cursos = dados)
-    this.onRefresh()
+    this.onRefresh();
   }
 
   onRefresh() {
-    this.cursos$  = this.cursoService.list()
-    .pipe(
-      catchError(error => {
-        console.log(error)
-        this.error$.next(true)
-        return EMPTY
+    this.cursos$ = this.cursoService.list().pipe(
+      catchError((error) => {
+        console.log(error);
+        this.error$.next(true);
+        return EMPTY;
       })
-    )
+    );
 
     // this.cursoService.list()
     // .pipe(
@@ -55,19 +54,21 @@ export class CursosListaComponent implements OnInit {
     //   dados => {
     //     console.log(dados)
     //   }
-      // error => console.error(error),
-      // () => console.log('Observable completo')
+    // error => console.error(error),
+    // () => console.log('Observable completo')
     // )
   }
 
   handleError() {
-    this.alertService.showAlertDanger('Erro ao carregar cursos. Tente novamente mais tarde.')
+    this.alertService.showAlertDanger(
+      'Erro ao carregar cursos. Tente novamente mais tarde.'
+    );
     // this.bsModalRef = this.modalService.show(AlertModalComponent);
     // this.bsModalRef.content.type = 'danger';
     // this.bsModalRef.content.message = ' Erro ao carregar cursos. Tente novamente mais tarde.';
   }
 
-  onEdit(id: number) {
-    this.router.navigate(['editar', id], { relativeTo: this.route})
+  onEdit(id: number | null) {
+    this.router.navigate(['editar', id], { relativeTo: this.route });
   }
 }
